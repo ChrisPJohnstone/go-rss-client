@@ -23,22 +23,30 @@ type RSS struct {
 	} `xml:"channel"`
 }
 
-func main() {
-	var url string = "https://feeds.bbci.co.uk/news/rss.xml"
+func RSSFeed(url string) (RSS, error) {
 	resp, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		return RSS{}, err
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		log.Fatalf("bad status: %d", resp.StatusCode)
+		return RSS{}, err
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		return RSS{}, err
 	}
 	var rss RSS
 	if err := xml.Unmarshal(body, &rss); err != nil {
+		return RSS{}, err
+	}
+	return rss, nil
+}
+
+func main() {
+	var url string = "https://feeds.bbci.co.uk/news/rss.xml"
+	rss, err := RSSFeed(url)
+	if err != nil {
 		log.Fatal(err)
 	}
 	for _, item := range rss.Channel.Items {
