@@ -1,11 +1,6 @@
 package main
 
-import (
-	"encoding/xml"
-	"fmt"
-	"io"
-	"net/http"
-)
+import "encoding/xml"
 
 type rssFeed struct {
 	Channel struct {
@@ -25,19 +20,7 @@ type rssItem struct {
 	GUID        string `xml:"guid"`
 }
 
-func fetchRSSFeed(url string) (Feed, error) {
-	resp, err := http.Get(url)
-	if err != nil {
-		return Feed{}, err
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return Feed{}, fmt.Errorf("bad status: %d", resp.StatusCode)
-	}
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return Feed{}, err
-	}
+func parseRSSFeed(body []byte) (Feed, error) {
 	var rss rssFeed
 	if err := xml.Unmarshal(body, &rss); err != nil {
 		return Feed{}, err
