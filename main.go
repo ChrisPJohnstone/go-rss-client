@@ -22,9 +22,17 @@ type Item struct {
 	ID          string // RSS: guid, Atom: id
 }
 
+func fetchFeed(url string) (Feed, error) {
+	feed, err := fetchRSSFeed(url)
+	if err != nil {
+		return Feed{}, err
+	}
+	return feed, nil
+}
+
 func main() {
 	var url string = "https://feeds.bbci.co.uk/news/rss.xml"
-	feed, err := fetchRSSFeed(url)
+	feed, err := fetchFeed(url)
 	if err != nil {
 		log.Fatal(err)
 	}
