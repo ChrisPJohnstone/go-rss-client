@@ -6,12 +6,13 @@ An RSS reader implemented in Go
 
 ### Version 0
 
-- [ ] Read RSS
-- [ ] Read Atom
+- [x] Read RSS
+- [x] Read Atom
 - [ ] Take URL as arg
 - [ ] Get list of titles
 - [ ] Get article for title
 
 ### Future
 
-- [ ] Get URLs from persistent store (e.g. config, SQLite
+- Consider making this repo just a client & have a second project for user
+- [ ] Get URLs from persistent store (e.g. config, SQLite)
