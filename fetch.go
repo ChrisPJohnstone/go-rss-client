@@ -58,6 +58,8 @@ func fetchFeed(url string) (Feed, error) {
 	switch feedType(body) {
 	case "rss":
 		return parseRSSFeed(body)
+	case "atom":
+		return parseAtomFeed(body)
 	default:
 		return Feed{}, fmt.Errorf("unknown feed type")
 	}

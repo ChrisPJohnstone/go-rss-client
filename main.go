@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	var url string = "https://feeds.bbci.co.uk/news/rss.xml"
+	var url string = "https://github.com/webex/webex-js-sdk/releases.atom"
 	feed, err := fetchFeed(url)
 	if err != nil {
 		log.Fatal(err)
