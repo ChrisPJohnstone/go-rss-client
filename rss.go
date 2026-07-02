@@ -29,7 +29,7 @@ func parseRSSFeed(body []byte) (Feed, error) {
 		Title:       rss.Channel.Title,
 		Description: rss.Channel.Description,
 		Link:        rss.Channel.Link,
-		FeedType:    "rss",
+		FeedType:    FeedTypeRSS,
 	}
 	for _, item := range rss.Channel.Items {
 		feed.Items = append(feed.Items, Item{

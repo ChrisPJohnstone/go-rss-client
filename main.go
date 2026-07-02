@@ -11,7 +11,7 @@ type Feed struct {
 	Title       string
 	Description string
 	Link        string
-	FeedType    string // "rss" or "atom"
+	FeedType    FeedType
 	Items       []Item
 }
 
@@ -40,14 +40,14 @@ func fetch(url string) ([]byte, error) {
 	return body, nil
 }
 
-func feedType(body []byte) string {
+func parseFeedType(body []byte) FeedType {
 	if bytes.Contains(body[:200], []byte(`<rss`)) {
-		return "rss"
+		return FeedTypeRSS
 	}
 	if bytes.Contains(body[:200], []byte(`<feed`)) {
-		return "atom"
+		return FeedTypeAtom
 	}
-	return ""
+	return FeedTypeUnknown
 }
 
 func FetchFeed(url string) (Feed, error) {
@@ -55,10 +55,10 @@ func FetchFeed(url string) (Feed, error) {
 	if err != nil {
 		return Feed{}, err
 	}
-	switch feedType(body) {
-	case "rss":
+	switch parseFeedType(body) {
+	case FeedTypeRSS:
 		return parseRSSFeed(body)
-	case "atom":
+	case FeedTypeAtom:
 		return parseAtomFeed(body)
 	default:
 		return Feed{}, fmt.Errorf("unknown feed type")

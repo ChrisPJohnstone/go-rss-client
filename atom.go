@@ -35,7 +35,7 @@ func parseAtomFeed(body []byte) (Feed, error) {
 		Title:       atom.Title,
 		Description: atom.Subtitle,
 		Link:        atom.Link.Href,
-		FeedType:    "atom",
+		FeedType:    FeedTypeAtom,
 	}
 	for _, entry := range atom.Entries {
 		desc := entry.Summary
