@@ -1,4 +1,4 @@
-package main
+package rssclient
 
 import "encoding/xml"
 
