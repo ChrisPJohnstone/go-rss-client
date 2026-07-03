@@ -1,0 +1,16 @@
+{
+  "Title": "Test RSS Feed",
+  "Description": "An RSS feed for testing",
+  "Link": "http://example.com",
+  "FeedType": 1,
+  "Items": [
+    {
+      "Title": "Item One",
+      "Description": "First item",
+      "Link": "http://example.com/1",
+      "Author": "",
+      "PubDate": "",
+      "ID": "guid-1"
+    }
+  ]
+}
