@@ -1,0 +1,7 @@
+<rss version="2.0">
+  <channel>
+    <title>Empty RSS Feed</title>
+    <link>http://example.com/empty</link>
+    <description>An RSS feed with no items</description>
+  </channel>
+</rss>

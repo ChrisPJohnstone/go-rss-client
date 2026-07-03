@@ -1,0 +1,11 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Content Fallback Feed</title>
+  <subtitle>No summary, only content</subtitle>
+  <link href="http://example.com/content"/>
+  <entry>
+    <title>Fallback Entry</title>
+    <link href="http://example.com/content/1"/>
+    <id>content-fallback-1</id>
+    <content>This is the content body</content>
+  </entry>
+</feed>

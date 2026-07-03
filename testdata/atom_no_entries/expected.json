@@ -1,0 +1,7 @@
+{
+  "Title": "Empty Atom Feed",
+  "Description": "An Atom feed with no entries",
+  "Link": "http://example.com/atom/empty",
+  "FeedType": 2,
+  "Items": null
+}

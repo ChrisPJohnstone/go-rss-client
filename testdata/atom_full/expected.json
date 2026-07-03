@@ -1,0 +1,24 @@
+{
+  "Title": "Full Atom Feed",
+  "Description": "A complete Atom feed",
+  "Link": "http://example.com/atom/full",
+  "FeedType": 2,
+  "Items": [
+    {
+      "Title": "Entry One",
+      "Description": "First entry summary",
+      "Link": "http://example.com/atom/full/1",
+      "Author": "Alice",
+      "PubDate": "2024-01-01T00:00:00Z",
+      "ID": "atom-full-1"
+    },
+    {
+      "Title": "Entry Two",
+      "Description": "Second entry summary",
+      "Link": "http://example.com/atom/full/2",
+      "Author": "Bob",
+      "PubDate": "2024-01-03T00:00:00Z",
+      "ID": "atom-full-2"
+    }
+  ]
+}

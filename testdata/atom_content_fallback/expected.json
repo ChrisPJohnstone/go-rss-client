@@ -1,0 +1,16 @@
+{
+  "Title": "Content Fallback Feed",
+  "Description": "No summary, only content",
+  "Link": "http://example.com/content",
+  "FeedType": 2,
+  "Items": [
+    {
+      "Title": "Fallback Entry",
+      "Description": "This is the content body",
+      "Link": "http://example.com/content/1",
+      "Author": "",
+      "PubDate": "",
+      "ID": "content-fallback-1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "Title": "Full RSS Feed",
+  "Description": "A complete RSS feed",
+  "Link": "http://example.com/full",
+  "FeedType": 1,
+  "Items": [
+    {
+      "Title": "Item One",
+      "Description": "First item description",
+      "Link": "http://example.com/full/1",
+      "Author": "Alice",
+      "PubDate": "Mon, 01 Jan 2024 00:00:00 GMT",
+      "ID": "guid-1"
+    },
+    {
+      "Title": "Item Two",
+      "Description": "Second item description",
+      "Link": "http://example.com/full/2",
+      "Author": "Bob",
+      "PubDate": "Tue, 02 Jan 2024 00:00:00 GMT",
+      "ID": "guid-2"
+    }
+  ]
+}

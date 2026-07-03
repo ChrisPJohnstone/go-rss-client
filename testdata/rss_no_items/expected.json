@@ -1,0 +1,7 @@
+{
+  "Title": "Empty RSS Feed",
+  "Description": "An RSS feed with no items",
+  "Link": "http://example.com/empty",
+  "FeedType": 1,
+  "Items": null
+}
