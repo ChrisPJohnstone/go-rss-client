@@ -29,7 +29,7 @@ func fetch(url string) ([]byte, error) {
 	if err != nil {
 		return []byte{}, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
 		return []byte{}, fmt.Errorf("bad status: %d", resp.StatusCode)
 	}

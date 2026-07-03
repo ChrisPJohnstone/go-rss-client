@@ -45,7 +45,9 @@ func TestFetchFeed(t *testing.T) {
 
 			ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 				w.WriteHeader(meta.StatusCode)
-				w.Write(respBody)
+				if _, err := w.Write(respBody); err != nil {
+					t.Fatal(err)
+				}
 			}))
 			defer ts.Close()
 
