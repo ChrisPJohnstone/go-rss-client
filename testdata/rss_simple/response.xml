@@ -1,0 +1,13 @@
+<rss version="2.0">
+  <channel>
+    <title>Test RSS Feed</title>
+    <link>http://example.com</link>
+    <description>An RSS feed for testing</description>
+    <item>
+      <title>Item One</title>
+      <link>http://example.com/1</link>
+      <description>First item</description>
+      <guid>guid-1</guid>
+    </item>
+  </channel>
+</rss>

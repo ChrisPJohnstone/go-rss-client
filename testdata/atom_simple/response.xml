@@ -1,0 +1,11 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Test Atom Feed</title>
+  <subtitle>An Atom feed for testing</subtitle>
+  <link href="http://example.com/atom"/>
+  <entry>
+    <title>Atom Entry</title>
+    <link href="http://example.com/atom/1"/>
+    <id>atom-id-1</id>
+    <summary>Atom summary</summary>
+  </entry>
+</feed>

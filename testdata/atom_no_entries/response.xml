@@ -1,0 +1,5 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Empty Atom Feed</title>
+  <subtitle>An Atom feed with no entries</subtitle>
+  <link href="http://example.com/atom/empty"/>
+</feed>

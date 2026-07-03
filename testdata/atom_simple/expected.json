@@ -1,0 +1,16 @@
+{
+  "Title": "Test Atom Feed",
+  "Description": "An Atom feed for testing",
+  "Link": "http://example.com/atom",
+  "FeedType": 2,
+  "Items": [
+    {
+      "Title": "Atom Entry",
+      "Description": "Atom summary",
+      "Link": "http://example.com/atom/1",
+      "Author": "",
+      "PubDate": "",
+      "ID": "atom-id-1"
+    }
+  ]
+}

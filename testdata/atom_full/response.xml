@@ -1,0 +1,23 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Full Atom Feed</title>
+  <subtitle>A complete Atom feed</subtitle>
+  <link href="http://example.com/atom/full"/>
+  <entry>
+    <title>Entry One</title>
+    <link href="http://example.com/atom/full/1"/>
+    <id>atom-full-1</id>
+    <published>2024-01-01T00:00:00Z</published>
+    <updated>2024-01-02T00:00:00Z</updated>
+    <summary>First entry summary</summary>
+    <author><name>Alice</name></author>
+  </entry>
+  <entry>
+    <title>Entry Two</title>
+    <link href="http://example.com/atom/full/2"/>
+    <id>atom-full-2</id>
+    <published>2024-01-03T00:00:00Z</published>
+    <updated>2024-01-04T00:00:00Z</updated>
+    <summary>Second entry summary</summary>
+    <author><name>Bob</name></author>
+  </entry>
+</feed>

@@ -29,7 +29,7 @@ func fetch(url string) ([]byte, error) {
 	if err != nil {
 		return []byte{}, err
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
 		return []byte{}, fmt.Errorf("bad status: %d", resp.StatusCode)
 	}
@@ -41,10 +41,12 @@ func fetch(url string) ([]byte, error) {
 }
 
 func parseFeedType(body []byte) FeedType {
-	if bytes.Contains(body[:200], []byte(`<rss`)) {
+	n := min(len(body), 100)
+	prefix := body[:n]
+	if bytes.Contains(prefix, []byte(`<rss`)) {
 		return FeedTypeRSS
 	}
-	if bytes.Contains(body[:200], []byte(`<feed`)) {
+	if bytes.Contains(prefix, []byte(`<feed`)) {
 		return FeedTypeAtom
 	}
 	return FeedTypeUnknown
