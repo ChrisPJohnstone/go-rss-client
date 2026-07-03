@@ -41,10 +41,12 @@ func fetch(url string) ([]byte, error) {
 }
 
 func parseFeedType(body []byte) FeedType {
-	if bytes.Contains(body[:200], []byte(`<rss`)) {
+	n := min(len(body), 100)
+	prefix := body[:n]
+	if bytes.Contains(prefix, []byte(`<rss`)) {
 		return FeedTypeRSS
 	}
-	if bytes.Contains(body[:200], []byte(`<feed`)) {
+	if bytes.Contains(prefix, []byte(`<feed`)) {
 		return FeedTypeAtom
 	}
 	return FeedTypeUnknown
