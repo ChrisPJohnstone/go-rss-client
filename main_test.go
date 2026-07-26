@@ -51,7 +51,7 @@ func TestFetchFeed(t *testing.T) {
 			}))
 			defer ts.Close()
 
-			got, err := rssclient.FetchFeed(ts.URL)
+			got, _, err := rssclient.FetchFeed(ts.URL, nil)
 
 			if meta.ExpectedError != "" {
 				if err == nil {

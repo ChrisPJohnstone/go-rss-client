@@ -24,20 +24,29 @@ type Item struct {
 	ID          string // RSS: guid, Atom: id
 }
 
-func fetch(url string) ([]byte, error) {
-	resp, err := http.Get(url)
+func fetch(url string, headers http.Header) ([]byte, http.Header, error) {
+	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
-		return []byte{}, err
+		return nil, nil, err
+	}
+	for key, values := range headers {
+		for _, v := range values {
+			req.Header.Add(key, v)
+		}
+	}
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, nil, err
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return []byte{}, fmt.Errorf("bad status: %d", resp.StatusCode)
+		return nil, resp.Header, fmt.Errorf("bad status: %d", resp.StatusCode)
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return []byte{}, err
+		return nil, resp.Header, err
 	}
-	return body, nil
+	return body, resp.Header, nil
 }
 
 func parseFeedType(body []byte) FeedType {
@@ -52,17 +61,25 @@ func parseFeedType(body []byte) FeedType {
 	return FeedTypeUnknown
 }
 
-func FetchFeed(url string) (Feed, error) {
-	body, err := fetch(url)
+func FetchFeed(url string, headers http.Header) (Feed, http.Header, error) {
+	var body []byte
+	var header http.Header
+	var err error
+	body, header, err = fetch(url, headers)
 	if err != nil {
-		return Feed{}, err
+		return Feed{}, header, err
 	}
+	var feed Feed
 	switch parseFeedType(body) {
 	case FeedTypeRSS:
-		return parseRSSFeed(body)
+		feed, err = parseRSSFeed(body)
 	case FeedTypeAtom:
-		return parseAtomFeed(body)
+		feed, err = parseAtomFeed(body)
 	default:
-		return Feed{}, fmt.Errorf("unknown feed type")
+		return Feed{}, header, fmt.Errorf("unknown feed type")
 	}
+	if err != nil {
+		return Feed{}, header, err
+	}
+	return feed, header, nil
 }
