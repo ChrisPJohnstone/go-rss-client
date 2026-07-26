@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ChrisPJohnstone/go-rss-client/compare/v1.0.0...v1.0.1) (2026-07-04)
+
+
+### Bug Fixes
+
+* testing & linting ([#5](https://github.com/ChrisPJohnstone/go-rss-client/issues/5)) ([f5613e6](https://github.com/ChrisPJohnstone/go-rss-client/commit/f5613e69dd1f44e74a2f4cb02090bf8431ac0a8e))
+
 ## 1.0.0 (2026-07-03)
 
 
