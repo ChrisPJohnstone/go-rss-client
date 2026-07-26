@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ChrisPJohnstone/go-rss-client"
+	"github.com/ChrisPJohnstone/go-rss-client/v2"
 )
 
 type testMeta struct {
