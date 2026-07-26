@@ -11,6 +11,17 @@
 
 * added header passing ([#8](https://github.com/ChrisPJohnstone/go-rss-client/issues/8)) ([0754329](https://github.com/ChrisPJohnstone/go-rss-client/commit/0754329b85d7bfabbe081608b8477497e791efe3))
 
+## [2.0.0](https://github.com/ChrisPJohnstone/go-rss-client/compare/v1.0.1...v2.0.0) (2026-07-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* added header passing ([#8](https://github.com/ChrisPJohnstone/go-rss-client/issues/8))
+
+### Features
+
+* added header passing ([#8](https://github.com/ChrisPJohnstone/go-rss-client/issues/8)) ([0754329](https://github.com/ChrisPJohnstone/go-rss-client/commit/0754329b85d7bfabbe081608b8477497e791efe3))
+
 ## [1.0.1](https://github.com/ChrisPJohnstone/go-rss-client/compare/v1.0.0...v1.0.1) (2026-07-04)
 
 
